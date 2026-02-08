@@ -1,0 +1,61 @@
+{
+  "name": "mcp-axigen",
+  "version": "2.2.0",
+  "description": "MCP server for Axigen mail server integration",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-axigen": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "dev": "tsx watch src/index.ts",
+    "dev:sse": "MCP_MODE=sse tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "start:sse": "MCP_MODE=sse node dist/index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/imap": "^0.8.43",
+    "axios": "^1.7.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "imap": "^0.8.19",
+    "oauth4webapi": "^3.8.3",
+    "openid-client": "^6.8.1",
+    "tsdav": "^2.1.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "axigen",
+    "email",
+    "calendar",
+    "ai",
+    "claude"
+  ],
+  "author": "Silbox (https://github.com/silbox-ch)",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silbox-ch/mcp-axigen.git"
+  }
+}
